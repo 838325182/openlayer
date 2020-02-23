@@ -1,0 +1,33 @@
+.container {
+  margin: 0px;
+  padding: 0px;
+  widows: 100%;
+  height: 100%;
+}
+#map,#mapCon,.map{
+  width: 100%; height: 90%; position: absolute;
+}
+#mouse-position{
+  float: left; position: absolute; bottom: 5px; width: 350px; height: 20px; z-index: 2000;
+}
+.title {
+  position: absolute; /*这里一定要设置*/
+  z-index: 999999;
+  margin-top: 10px;
+  margin-left: 50px;
+}
+.marker {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #088;
+  border-radius: 10px;
+  background-color: #0ff;
+  opacity: 0.5;
+}
+.address {
+  text-decoration: none;
+  color: #aa3300;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: black 0.1em 0.1em 0.2em;
+}
