@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="title">
-      <h3 style="float: left; ">forEachFeatureAtPixel方法获取geoserveWMS服务发布的要素</h3>
+      <h3 style="float: left; ">forEachFeatureAtPixel方法获取geoserveWMS服务发布的要素组layergroup</h3>
 
       <el-button type="primary" @click="backHome" style="float: left;">返回Home</el-button>
       <br />
@@ -10,7 +10,7 @@
     <div id="mapCon">
       <div id="popupDiv" style="width: 150px;">
         <div id="popupTitle">
-          小区信息
+          小区组信息
           <a id="closeOverlay"></a>
         </div>
         <div id="popupContent"></div>
@@ -51,7 +51,7 @@ export default {
     initmap() {
       //加载图例图片
       let url =
-        "http://localhost:8081/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.1.0&FORMAT=image/png&WIDTH=40&HEIGHT=60&LAYER=yyc:panel_xiaoqu";
+        "http://localhost:8081/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.1.0&FORMAT=image/png&WIDTH=40&HEIGHT=60&LAYER=yyc:dalian_xiaoqu";
       $("#legendImg").attr("src", url);
 
       let tianditu_vec = new Tile({
@@ -67,7 +67,7 @@ export default {
           url: "http://localhost:8081/geoserver/yyc/wms?", //service=WMS",
           params: {
             // version: "1.1.0",
-            layers: "yyc:panel_xiaoqu", //'yyc:polygon--point',//'yyc:panel_xiaoqu',//'yyc:shcool'
+            layers: "yyc:dalian_xiaoqu", //'yyc:polygon--point',//'yyc:panel_xiaoqu',//'yyc:shcool'
             styles: "",
             // bbox: '121.535021012,38.864993506000076,121.70835778400006,38.94694350700003',
             // width: '768',
@@ -78,7 +78,7 @@ export default {
         }),
         zIndex: 2,
         // maxResolution: 8,
-        name: "xiaoquWMSLayer" //这个名字用来移除图层，或者查找土层中数据avg:7008-45467
+        name: "xiaoquWMSLayergroup" //这个名字用来移除图层，或者查找土层中数据avg:7008-45467
       });
 
       this.map = new Map({
@@ -117,13 +117,12 @@ export default {
         let featureUrl;
         let view = evt.map.getView();
         let layers = evt.map.getLayers().getArray();
-
-        for (var i = 0; i < layers.length; i++) {
-          if (
-            layers[i].getProperties()["name"] &&
-            layers[i].getProperties()["name"] == "xiaoquWMSLayer"
-          ) {
+        
+        for (let i = 0; i < layers.length; i++) {
+            console.log(layers[i].getProperties()["name"])
+          if ( layers[i].getProperties()["name"] && layers[i].getProperties()["name"] == "xiaoquWMSLayergroup" ) {
             let source = layers[i].getSource();
+            console.log(source)
             featureUrl = source.getFeatureInfoUrl(
               evt.coordinate,
               view.getResolution(),
@@ -135,11 +134,9 @@ export default {
         }
 
         if (featureUrl) {
-          featureUrl = featureUrl + "&QUERY_LAYERS=yyc:panel_xiaoqu"; ////////超级关键
+          featureUrl = featureUrl + "&QUERY_LAYERS=yyc:dalian_xiaoqu"; ////////超级关键
           let format = new GeoJSON();
-          _this.$axios
-            .get(featureUrl)
-            .then(res => {
+          _this.$axios.get(featureUrl).then(res => {
               if (res.data.features) {
                 let result = format.readFeatures(res.data);
                 let feature = result[0];

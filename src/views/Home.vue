@@ -68,9 +68,10 @@
               <el-menu-item index="5-1" @click='routerTo("WFS")'>WFS地图</el-menu-item>
               <el-menu-item index="5-2" @click='routerTo("WMS")'>WMS地图</el-menu-item>
               <el-menu-item index="5-3" @click='routerTo("WMTS")'>WMTS地图</el-menu-item>
-              <el-menu-item index="5-3" @click='routerTo("geoserveWMS")'>geoserveWMS</el-menu-item>
-              <el-menu-item index="5-3" @click='routerTo("geoServeWFS")'>geoServeWFS</el-menu-item>
-              <el-menu-item index="5-3" @click='routerTo("webgisXHZW")'>webgisXHZW</el-menu-item>
+              <el-menu-item index="5-4" @click='routerTo("geoserveWMS")'>geoserveWMS</el-menu-item>
+              <el-menu-item index="5-5" @click='routerTo("geoServeWFS")'>geoServeWFS</el-menu-item>
+              <el-menu-item index="5-6" @click='routerTo("geoserveLayergroup")'>geoserveLayergroup</el-menu-item>
+              <el-menu-item index="5-7" @click='routerTo("webgisXHZW")'>webgisXHZW</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
 

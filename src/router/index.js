@@ -38,6 +38,10 @@ const routes = [
     name: 'geoserveWMS',
     component: () => import ('../views/OGC/geoserveWMS.vue')
   },{
+    path: '/geoserveLayergroup',
+    name: 'geoserveLayergroup',
+    component: () => import ('../views/OGC/geoserveLayergroup.vue')
+  },{
     path: '/WFS',
     name: 'WFS',
     component: () => import ('../views/OGC/WFS.vue')
