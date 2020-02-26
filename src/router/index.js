@@ -1,22 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import AddMap from '../views/AddMap.vue'
-import BingMap from '../views/BingMap.vue'
-import AddPoint from '../views/AddPoint.vue'
-import AddLine from '../views/AddLine.vue'
-import AddLabel from '../views/AddLabel.vue'
-import AddXiaoQu from '../views/AddXiaoQu.vue'
-import ClickLabel from '../views/ClickLabel.vue'
-import GaodeMap from '../views/GaodeMap.vue'
-import InitMap from '../views/InitMap.vue'
-import ClickChange from '../views/ClickChange.vue'
-import StaticMap from '../views/StaticMap.vue'
-import MapVector from '../views/MapVector.vue'
-import DrawVector from '../views/DrawVector.vue'
-import MarkUsePoint from '../views/MarkUsePoint.vue'
-import MarkUseOverlay from '../views/MarkUseOverlay.vue'
-
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -29,78 +12,112 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: () => import ('../views/Home.vue')
+  },{
+    path: '/turf',
+    name: 'turf',
+    component: () => import ('../views/TOPOLOPY/turf.vue')
+  },{
+    path: '/topoInclude',
+    name: 'topoInclude',
+    component: () => import ('../views/TOPOLOPY/topoInclude.vue')
+  },{
+    path: '/topoIntersect',
+    name: 'topoIntersect',
+    component: () => import ('../views/TOPOLOPY/topoIntersect.vue')
+  },{
+    path: '/echart',
+    name: 'echart',
+    component: () => import ('../views/ECHARTS/echart.vue')
+  },{
+    path: '/geoServeWFS',
+    name: 'geoServeWFS',
+    component: () => import ('../views/OGC/geoServeWFS.vue')
+  },{
+    path: '/geoserveWMS',
+    name: 'geoserveWMS',
+    component: () => import ('../views/OGC/geoserveWMS.vue')
+  },{
+    path: '/WFS',
+    name: 'WFS',
+    component: () => import ('../views/OGC/WFS.vue')
+  },{
+    path: '/WMS',
+    name: 'WMS',
+    component: () => import ('../views/OGC/WMS.vue')
+  },{
+    path: '/WMTS',
+    name: 'WMTS',
+    component: () => import ('../views/OGC/WMTS.vue')
   },{
     path: '/addMap',
     name: 'addMap',
-    component: AddMap
+    component: () => import ('../views/MAP/ArcGISMap.vue')
+  },{
+    path: '/BaiDuMap',
+    name: 'BaiDuMap',
+    component: () => import ('../views/MAP/BaiDuMap.vue')
   },{
     path: '/bingMap',
     name: 'bingMap',
-    component: BingMap
-  },{
-    path: '/addPoint',
-    name: 'addPoint',
-    component: AddPoint
-  },{
-    path: '/addLine',
-    name: 'addLine',
-    component: AddLine
-  },{
-    path: '/addLabel',
-    name: 'addLabel',
-    component: AddLabel
-  },{
-    path: '/addxiaoqu',
-    name: 'addxiaoqu',
-    component: AddXiaoQu
-  },{
-    path: '/clickLabel',
-    name: 'clickLabel',
-    component: ClickLabel
-  },{
-    path: '/gaodeMap',
-    name: 'gaodeMap',
-    component: GaodeMap
-  },{
-    path: '/initMap',
-    name: 'initMap',
-    component: InitMap
-  },{
-    path: '/clickChange',
-    name: 'clickChange',
-    component: ClickChange
+    component: () => import ('../views/MAP/BingMap.vue')
   },{
     path: '/staticMap',
     name: 'staticMap',
-    component: StaticMap
+    component: () => import ('../views/MAP/StaticMap.vue')
+  },{
+    path: '/gaodeMap',
+    name: 'gaodeMap',
+    component: () => import ('../views/MAP/GaodeMap.vue')
+  },{
+    path: '/dragAndDropFile',
+    name: 'dragAndDropFile',
+    component: () => import ('../views/MAP/DragAndDropFile.vue')
+  },{
+    path: '/dragRotateAndZoom',
+    name: 'dragRotateAndZoom',
+    component: () => import ('../views/MAP/DragRotateAndZoom.vue')
+  },
+
+  {
+    path: '/addPoint',
+    name: 'addPoint',
+    component: () => import ('../views/FEATURE/AddPoint.vue')
+  },{
+    path: '/addLine',
+    name: 'addLine',
+    component: () => import ('../views/FEATURE/AddLine.vue')
+  },{
+    path: '/addLabel',
+    name: 'addLabel',
+    component: () => import ('../views/FEATURE/AddLabel.vue')
   },{
     path: '/mapVector',
     name: 'mapVector',
-    component: MapVector
+    component: () => import ('../views/FEATURE/MapVector.vue')
   },{
     path: '/drawVector',
     name: 'drawVector',
-    component: DrawVector
+    component: () => import ('../views/FEATURE/DrawVector.vue')
   },{
     path: '/markUsePoint',
     name: 'markUsePoint',
-    component: MarkUsePoint
+    component: () => import ('../views/FEATURE/MarkUsePoint.vue')
   },{
     path: '/markUseOverlay',
     name: 'markUseOverlay',
-    component: MarkUseOverlay
+    component: () => import ('../views/FEATURE/MarkUseOverlay.vue')
+  },
+  {
+    path: '/clickLabel',
+    name: 'clickLabel',
+    component: () => import ('../views/EVENT/ClickLabel.vue')
+  },{
+    path: '/clickChange',
+    name: 'clickChange',
+    component: () => import ('../views/EVENT/ClickChange.vue')
   }
-  
-  
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited./* webpackChunkName: "about" */
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  // }
+
 ]
 
 const router = new VueRouter({

@@ -174,5 +174,7 @@ export default {
 </script>
 
 <style scoped>
-
+.css{
+  width:100%;
+}
 </style>

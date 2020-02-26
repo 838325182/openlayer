@@ -31,3 +31,86 @@
   font-weight: bold;
   text-shadow: black 0.1em 0.1em 0.2em;
 }
+
+#mapCon {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-size: 12px;
+  font-family: "微软雅黑";
+}
+.legend {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 999;
+  width: 150px;
+  height: 330px;
+  border: 1px solid #f00;
+  background: #ffffff;
+}
+.legend-title {
+  background: #ccc;
+  padding: 5px;
+  height: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+#legendImg{
+  height: 300px;
+  width: 100%;
+}
+#popupDiv{
+      position: absolute;
+  width: 200px;
+  border-radius: 6px;
+  background: #e4df25;
+  padding: 10px;
+}
+#popupTitle{
+  text-align:center;
+  height: 25px;
+  line-height:25px;
+  margin-bottom: 3px;
+  border-bottom: 2px solid #c64af9;
+}
+
+#popupContent:after, #popupContent:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    /* pointer-events: none; */
+    left:115px;
+}
+
+#popupContent:after {
+    border-top-color: white;
+    border-width: 10px;
+    margin-left: -10px;
+}
+
+#popupContent:before {
+    border-top-color: #cccccc;
+    border-width: 10px;
+    margin-left: -10px;
+}
+
+#closeOverlay:after {
+  float: right;
+  margin-right: 15px;
+  color: #7a00ff;
+    content: "?";
+    cursor:pointer;
+}
+
+#popupContent a{
+  color:blue;
+  float: right;
+  margin-right: 10px;
+  text-decoration: underline;
+}

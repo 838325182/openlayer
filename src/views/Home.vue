@@ -18,6 +18,7 @@
             <el-menu-item-group>
               <template slot="title">加载地图</template>
               <el-menu-item index="1-1" @click="routerTo('AddMap')">ArcGISMap</el-menu-item>
+              <el-menu-item index="1-1" @click="routerTo('BaiDuMap')">百度地图</el-menu-item>
               <el-menu-item index="1-2" @click="routerTo('bingMap')">BingMap</el-menu-item>
               <el-menu-item index="1-3" @click="routerTo('gaodeMAp')">gaode的map</el-menu-item>
               <el-menu-item index="1-3" @click='routerTo("StaticMap")'>静态地图</el-menu-item>
@@ -56,15 +57,42 @@
             </el-menu-item-group>
           </el-submenu>
 
-          <el-submenu index="4">
+          
+
+          <el-submenu index="5">
             <template slot="title">
               <i class="el-icon-setting"></i>
-              <span>项目功能</span>
+              <span>OGC资源</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="4-1" @click='routerTo("initMap")'>initMap高德</el-menu-item>
-              <el-menu-item index="4-2" @click='routerTo("AddXiaoQu")'>加载小区图层</el-menu-item>
-              <el-menu-item index="4-3"><router-link to='/AddXiaoQu'>直接路由加载小区图层</router-link></el-menu-item>
+              <el-menu-item index="5-1" @click='routerTo("WFS")'>WFS地图</el-menu-item>
+              <el-menu-item index="5-2" @click='routerTo("WMS")'>WMS地图</el-menu-item>
+              <el-menu-item index="5-3" @click='routerTo("WMTS")'>WMTS地图</el-menu-item>
+              <el-menu-item index="5-3" @click='routerTo("geoserveWMS")'>geoserveWMS</el-menu-item>
+              <el-menu-item index="5-3" @click='routerTo("geoServeWFS")'>geoServeWFS</el-menu-item>
+              <el-menu-item index="5-3" @click='routerTo("webgisXHZW")'>webgisXHZW</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+
+          <el-submenu index="6">
+            <template slot="title">
+              <i class="el-icon-setting"></i>
+              <span>Echarts</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="6-1" @click='routerTo("echart")'>echart环形图</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+
+          <el-submenu index="7">
+            <template slot="title">
+              <i class="el-icon-setting"></i>
+              <span>拓扑分析</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="7-1" @click='routerTo("topoIntersect")'>ol拓扑分析--相交</el-menu-item>
+              <el-menu-item index="7-1" @click='routerTo("topoInclude")'>ol拓扑分析--包含</el-menu-item>
+              <el-menu-item index="7-1" @click='routerTo("turf")'>turf拓扑分析</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
 
