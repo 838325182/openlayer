@@ -51,7 +51,7 @@ export default {
     initmap() {
       //加载图例图片
       let url =
-        "http://localhost:8081/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.1.0&FORMAT=image/png&WIDTH=40&HEIGHT=60&LAYER=yyc:panel_xiaoqu";
+        "http://localhost:8081/geoserver/yyc/wms?REQUEST=GetLegendGraphic&VERSION=1.1.0&FORMAT=image/png&WIDTH=40&HEIGHT=60&LAYER=yyc:panel_xiaoqu";
       $("#legendImg").attr("src", url);
 
       let tianditu_vec = new Tile({
